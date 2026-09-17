@@ -9,7 +9,7 @@ This page tracks all upcoming and past lab presentations, paper discussions, and
 
 | Date | Presenter | Reading / Topic |
 | :--- | :--- | :--- |
-|24 Sept 26 | Shaheen | Journal club. Paper: Ponce-Alvarez, A., Deco, G. The Hopf whole-brain model and its linear approximation. Sci Rep 14, 2615 (2024). https://doi.org/10.1038/s41598-024-53105-0 |
+|24 Sept 26 | Shaheen | Journal club. Paper: Ponce-Alvarez, A., Deco, G. The Hopf whole-brain model and its linear approximation. Sci Rep 14, 2615 (2024). <https://doi.org/10.1038/s41598-024-53105-0> |
 |17 Sept 26 | NA | Mid-sem exams |
 | 10 Sept 26 | Prashansa | Project discussion |
 | 03 Sept 26 | Prashansa | Project discussion |
