@@ -26,7 +26,8 @@ nav:
   - Lab Protocols:
       - Overview: protocols/index.md
       - EEG Acquisition Setup: protocols/EEG Recording SOP.md
-      
+      - EEG Preprocessing: protocols/EEG Preprocessing.md
+      - Psychopy: protocols/psychopy.md
   - Lab Meetings: meetings.md
 
 markdown_extensions:
