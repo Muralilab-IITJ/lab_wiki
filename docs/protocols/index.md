@@ -6,7 +6,7 @@ Welcome to the Murali Lab Protocol Repository. This section serves as the centra
     All lab members and research assistants must review the relevant safety and hardware protocols before conducting experiments with human participants or lab equipment.
 
 ---
-
+<!-- 
 ## 📚 Protocol Directory
 
 ### 🧠 Experimental & Hardware SOPs
@@ -41,3 +41,4 @@ To maintain high research reproducibility, please follow these steps when adding
    ## 2. Step-by-Step Procedure
    ## 3. Data Output & Storage
    ## 4. Common Troubleshooting
+   -->
