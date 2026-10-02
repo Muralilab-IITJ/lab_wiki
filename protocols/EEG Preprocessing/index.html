@@ -1,0 +1,1305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal documentation and protocols for Murali Lab, IIT Jodhpur.">
+      
+      
+      
+        <link rel="canonical" href="https://muralilab-ccn.github.io/lab_wiki/protocols/EEG%20Preprocessing/">
+      
+      
+        <link rel="prev" href="../EEG%20Recording%20SOP/">
+      
+      
+        <link rel="next" href="../psychopy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>EEG Preprocessing - Murali Lab Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eeg-preprocessing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Murali Lab Wiki" class="md-header__button md-logo" aria-label="Murali Lab Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Murali Lab Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EEG Preprocessing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/muralilab-ccn/lab_wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Lab Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../meetings/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab Meetings
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Murali Lab Wiki" class="md-nav__button md-logo" aria-label="Murali Lab Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Murali Lab Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/muralilab-ccn/lab_wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EEG%20Recording%20SOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEG Acquisition Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEG Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEG Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose-and-pre-processing-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose and Pre-Processing Philosophy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-preprocessing-data-quality-at-acquisition-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pre-Preprocessing: Data Quality at Acquisition (Prevention)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-step-by-step-preprocessing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Step-by-Step Preprocessing Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Step-by-Step Preprocessing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-initial-data-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Initial Data Inspection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-resampling-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Resampling (if needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Filtering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-bad-channel-detection-and-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Bad Channel Detection and Interpolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Re-referencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-independent-component-analysis-ica-for-stereotyped-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Independent Component Analysis (ICA) for Stereotyped Artifacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Independent Component Analysis (ICA) for Stereotyped Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithm options:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-for-good-ica-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements for good ICA decomposition:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component classification:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-regression-based-ocular-correction-alternativesupplement-to-ica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Regression-Based Ocular Correction (Alternative/Supplement to ICA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-rejection-of-non-stereotyped-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Rejection of Non-Stereotyped Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-segmentation-epoching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Segmentation (Epoching)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-automated-preprocessing-pipelines-optional-for-standardisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Automated Preprocessing Pipelines (Optional, for Standardisation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-special-consideration-for-motor-imagery-bci-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Special Consideration for Motor Imagery / BCI Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-documentation-and-reporting-checklist-for-publicationreproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Documentation and Reporting Checklist (for Publication/Reproducibility)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../psychopy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Psychopy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meetings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Meetings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose-and-pre-processing-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose and Pre-Processing Philosophy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-preprocessing-data-quality-at-acquisition-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pre-Preprocessing: Data Quality at Acquisition (Prevention)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-step-by-step-preprocessing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Step-by-Step Preprocessing Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Step-by-Step Preprocessing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-initial-data-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Initial Data Inspection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-resampling-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Resampling (if needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Filtering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-bad-channel-detection-and-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Bad Channel Detection and Interpolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-re-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Re-referencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-independent-component-analysis-ica-for-stereotyped-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Independent Component Analysis (ICA) for Stereotyped Artifacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6: Independent Component Analysis (ICA) for Stereotyped Artifacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#algorithm-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algorithm options:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-for-good-ica-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements for good ICA decomposition:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component classification:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-regression-based-ocular-correction-alternativesupplement-to-ica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Regression-Based Ocular Correction (Alternative/Supplement to ICA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-rejection-of-non-stereotyped-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Rejection of Non-Stereotyped Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-segmentation-epoching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Segmentation (Epoching)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-automated-preprocessing-pipelines-optional-for-standardisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Automated Preprocessing Pipelines (Optional, for Standardisation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-special-consideration-for-motor-imagery-bci-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Special Consideration for Motor Imagery / BCI Pipelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-documentation-and-reporting-checklist-for-publicationreproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Documentation and Reporting Checklist (for Publication/Reproducibility)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="eeg-preprocessing">EEG Preprocessing</h1>
+<p>(<strong>Note:</strong> These whole preprocessing steps are for reference purposes only. Please verify the complete preprocessing steps with Prof. Vignesh before implementing.) </p>
+<h2 id="1-purpose-and-pre-processing-philosophy">1. Purpose and Pre-Processing Philosophy</h2>
+<p>Preprocessing has two objectives: <strong>data transformation</strong> (converting raw data into a computable, analyzable format) and <strong>artifact handling</strong> (removing or attenuating non-neural contamination, such as eye movements, muscle activity, and electrical noise).</p>
+<p>There is no single universal pipeline. Steps should be selected based on </p>
+<ol>
+<li>Data quality/noise level  </li>
+<li>The intended analysis (ERP vs. oscillatory vs. connectivity vs. BCI classification)   </li>
+<li>Requirements of downstream algorithms (e.g., ICA needs high-pass filtering first)  </li>
+<li>Comparability with prior literature.</li>
+</ol>
+<p>Document every parameter used at every step - this is required for reproducibility per the OHBM <strong>COBIDAS-MEEG</strong> reporting guidelines (Pernet et al., 2020, <em>Nature Neuroscience</em>) and the Keil et al. (2014) EEG/MEG publication guidelines committee report.</p>
+<p><strong>Note the ongoing debate</strong>: Delorme (2023, <em>Scientific Reports</em>, "EEG is better left alone") argues excessive preprocessing can be unnecessary or harmful for very clean data, while de Cheveigné (2023) and Larsen &amp; Versace (2024) counter that preprocessing remains essential for noisier/complex datasets (e.g., mobile EEG, motor imagery paradigms with muscle/movement contamination). </p>
+<h2 id="2-pre-preprocessing-data-quality-at-acquisition-prevention">2. Pre-Preprocessing: Data Quality at Acquisition (Prevention)</h2>
+<p>Preprocessing quality is capped by acquisition quality. Before touching the data:</p>
+<ul>
+<li>[ ] Confirm channel montage/coordinates were imported correctly;   </li>
+<li>[ ] Electrode position accuracy matters for interpolation, referencing, and source work  </li>
+<li>[ ] Keep electrode impedances low - below 10 kΩ for passive electrodes; active electrodes can tolerate &gt;20 kΩ without quality loss (Kappenman &amp; Luck, 2010, <em>Psychophysiology</em>).  </li>
+<li>[ ] Log all sources of technical artifact during the session (line noise, cable movement, static discharge, electrode pops), since these inform later cleaning decisions.  </li>
+<li>[ ] For mobile/motor tasks (walking, cycling, motor imagery with limb movement), expect rhythmic motion artifacts synchronized to movement frequency - plan extra EMG/movement channels or accelerometry if possible.</li>
+</ul>
+<h2 id="3-step-by-step-preprocessing-pipeline">3. Step-by-Step Preprocessing Pipeline</h2>
+<h3 id="step-1-initial-data-inspection">Step 1: Initial Data Inspection</h3>
+<ul>
+<li>Verify all channels/coordinates loaded correctly; check for flat or non-functioning channels and mislabeled/missing event markers.  </li>
+<li>Standardise/rename event markers for consistency; discard channels/segments irrelevant to analysis.</li>
+</ul>
+<h3 id="step-2-resampling-if-needed">Step 2: Resampling (if needed)</h3>
+<ul>
+<li>Downsample high acquisition rates (e.g., 1000 Hz) to reduce file size/computation. For analyses up to the Beta band (\~30 Hz), 250–500 Hz is typically sufficient; EMG, fMRI-gradient, or TMS-pulse correction require higher rates first, then downsample afterwards.  </li>
+<li><strong>Always low-pass filter before downsampling to prevent aliasing</strong> — many toolboxes do this automatically, but verify.</li>
+</ul>
+<h3 id="step-3-filtering">Step 3: Filtering</h3>
+<ul>
+<li>Apply non-causal, zero-phase filters (preserves phase of retained frequencies):  </li>
+<li><strong>High-pass:</strong> 0.1–0.5 Hz to remove slow drifts (body sway, skin potentials).  </li>
+<li><strong>Low-pass:</strong> \~45 Hz cutoff for typical cognitive/oscillatory EEG (removes muscle/high-frequency noise); adjust upward if gamma-band or EMG content is of interest.  </li>
+<li><strong>Notch filter:</strong> 50 or 60 Hz (per your region's mains frequency) plus harmonics, for line noise.  </li>
+<li>Choose FIR or IIR based on your needs; higher filter order \= steeper roll-off but reduced temporal precision. Use the half-power (−3 dB) or half-amplitude (−6 dB) cutoff convention consistently and report which one you used.  </li>
+<li>Filter minimally and only as needed -  filtering can distort data in non-obvious ways (de Cheveigné &amp; Nelken, 2019, <em>Neuron</em>; Widmann et al., 2015; Zhang et al., 2024).</li>
+</ul>
+<h3 id="step-4-bad-channel-detection-and-interpolation">Step 4: Bad Channel Detection and Interpolation</h3>
+<ul>
+<li>Identify flat, noisy, or persistently artifactual channels using visual inspection or automated metrics (e.g., within the <strong>PREP pipeline;</strong> Bigdely-Shamlo et al., 2015, <em>Front. Neuroinform.</em>).  </li>
+<li>Interpolate using spherical spline interpolation (standard default in most toolboxes). Use sparingly - over-interpolation can distort true brain activity; there's no fixed cap, but keep it minimal and report the count/percentage interpolated.  </li>
+<li><strong>Order matters:</strong> interpolate bad channels <em>before</em> applying an average reference to preserve balanced spatial sampling; also, running ICA before interpolation/re-referencing avoids rank-deficiency problems.</li>
+</ul>
+<h3 id="step-5-re-referencing">Step 5: Re-referencing</h3>
+<ul>
+<li>Choose a reference scheme deliberately: online reference proximity can suppress amplitude near that site; use of <strong>Average Reference</strong> improves SNR but requires ≥64 channels with even scalp coverage and no remaining bad channels (Bigdely-Shamlo et al., 2015; Hu et al., 2018, <em>J Neural Eng</em>; Tsuchimoto et al., 2021, <em>J Neurosci Methods</em>).  </li>
+<li>For mastoid-referenced setups, average the left/right mastoids to avoid hemispheric bias.  </li>
+<li>Match your reference scheme to the literature you intend to compare against.</li>
+</ul>
+<h3 id="step-6-independent-component-analysis-ica-for-stereotyped-artifacts">Step 6: Independent Component Analysis (ICA) for Stereotyped Artifacts</h3>
+<p>Used to correct eye blinks, eye movements, and muscle activity (spatially/temporally consistent artifacts) without discarding data points.</p>
+<h4 id="algorithm-options"><strong>Algorithm options:</strong></h4>
+<ul>
+<li>Infomax ICA (Makeig et al., 1996) — most widely used; FastICA (Hyvärinen &amp; Oja, 2000);   </li>
+<li>RELICA (Artoni et al., 2014);   </li>
+<li>AMICA (Palmer et al., 2010; Klug et al., 2024). </li>
+</ul>
+<p>Algorithm choice depends on your data's artifact profile (Delorme et al., 2012; Klug et al., 2024).</p>
+<h4 id="requirements-for-good-ica-decomposition">Requirements for good ICA decomposition:</h4>
+<ul>
+<li>Use ≥64 channels where possible for adequate spatial resolution (Cohen, 2014; Klug &amp; Gramann, 2020, <em>Eur J Neurosci</em>).  </li>
+<li>Sufficient training data: at least (channels² × 20) data points for \&lt;64 channels, or (channels² × 30) for ≥64 channels (Makeig &amp; Onton, 2011).  </li>
+<li>Apply a high-pass filter (\~1–2 Hz) beforehand to remove slow drifts that degrade decomposition quality; you can later apply ICA weights to a less-filtered copy of the data to avoid distorting ERP timing (Debener et al., 2010; Klug &amp; Gramann, 2020; Winkler et al., 2015).  </li>
+<li>Run ICA <strong>before</strong> interpolation or average referencing to avoid rank-deficiency (reduced effective number of independent channels), or reduce the number of extracted components accordingly.</li>
+</ul>
+<h4 id="component-classification"><strong>Component classification:</strong></h4>
+<p>Visually inspect the topography, time course, and spectrum of each component. Automated classifiers such as <strong>ICLabel</strong> (Pion-Tonachini et al., 2019, <em>NeuroImage</em>) assign each independent component a probability across seven classes - Brain, Muscle, Eye, Heart, Line Noise, Channel Noise, Other - and are available in EEGLAB (MATLAB) and via mne-icalabel (Python).</p>
+<p><em>ICLabel expects extended-Infomax ICA on average-referenced data filtered \~1–100 Hz.</em></p>
+<p><strong>Avoid over-correction:</strong> only remove components confidently identified as artifact; removing components containing genuine brain signal degrades data quality.</p>
+<h3 id="step-7-regression-based-ocular-correction-alternativesupplement-to-ica">Step 7: Regression-Based Ocular Correction (Alternative/Supplement to ICA)</h3>
+<p>The <strong>Gratton &amp; Coles (1983)</strong> algorithm regresses out blink/eye-movement contributions using EOG channels — computationally cheap but requires good EOG recordings (Jiang et al., 2019, <em>Sensors</em>, review of EEG artifact removal methods).</p>
+<h3 id="step-8-rejection-of-non-stereotyped-artifacts">Step 8: Rejection of Non-Stereotyped Artifacts</h3>
+<p>For sporadic events (electrode pops, gross movement, transient muscle tension) that don't have a consistent spatial signature suitable for ICA correction:</p>
+<ul>
+<li>Detect via automatic thresholding (amplitude, kurtosis, joint probability) or manual visual marking. No universal threshold exists - tune to your dataset and apply consistently across subjects, adjusting only when a dataset is clearly noisier.  </li>
+<li>Reject affected trials/channels/segments, or in extreme cases, the entire session.  </li>
+<li><strong>Best practice:</strong> combine correction (ICA/regression) with rejection rather than relying on either alone, especially for mobile/motor paradigms (Zhang et al., 2024; Gorjan et al., 2022)</li>
+</ul>
+<h3 id="step-9-segmentation-epoching">Step 9: Segmentation (Epoching)</h3>
+<ul>
+<li>Define pre- and post-event windows based on your paradigm and expected neural latency.  </li>
+<li>For <strong>time-frequency/wavelet analysis</strong>, add safety margins to both segment edges to avoid edge effects and smearing (Herrmann et al., 2014, <em>Brain Topography</em>; Roach &amp; Mathalon, 2008).  </li>
+<li>For <strong>FFT/Welch spectral analysis</strong>, ensure segment length covers at least one cycle of your lowest frequency of interest; use power-of-two lengths for computational efficiency.  </li>
+<li>For <strong>motor imagery/BCI classification</strong>, epoch relative to cue onset with sufficient pre-cue baseline for baseline correction and post-cue window covering the full imagined-movement period .</li>
+</ul>
+<h2 id="4-automated-preprocessing-pipelines-optional-for-standardisation">4. Automated Preprocessing Pipelines (Optional, for Standardisation)</h2>
+<p>If you want a validated, standardised pipeline rather than assembling steps manually:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Pipeline</th>
+<th>Platform</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>PREP</strong></td>
+<td>EEGLAB/MATLAB</td>
+<td>Standardised preprocessing for large-scale EEG (line noise removal, robust referencing, bad channel detection) (Bigdely-Shamlo et al., 2015)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>HAPPE</strong></td>
+<td>EEGLAB/MATLAB</td>
+<td>Designed for developmental/high-artifact data (Gabard-Durnam et al., 2018; updated Monachino et al., 2022)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>ADJUST</strong></td>
+<td>EEGLAB/MATLAB</td>
+<td>Automated IC artifact detection (Mognon et al., 2011)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>RELAX</strong></td>
+<td>EEGLAB/MATLAB</td>
+<td>Automated cleaning pipeline (Bailey et al., 2023)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>DISCOVER-EEG</strong></td>
+<td>EEGLAB/MATLAB</td>
+<td>Fully automated pipeline for biomarker discovery (Gil Ávila et al., 2023, <em>Scientific Data</em>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>ICLabel / mne-icalabel</strong></td>
+<td>EEGLAB or MNE-Python</td>
+<td>Automated IC classification (Pion-Tonachini et al., 2019)</td>
+</tr>
+</tbody>
+</table>
+<p>If you are proficient with MNE-Python and EEGLAB, mne-icalabel + a custom MNE pipeline, or EEGLAB with ICLabel/ADJUST, are both suitable starting points; you can build a hybrid pipeline and script it for batch/version-controlled processing.</p>
+<h2 id="5-special-consideration-for-motor-imagery-bci-pipelines">5. Special Consideration for Motor Imagery / BCI Pipelines</h2>
+<ul>
+<li>A comparative study (Gao et al., 2025, <em>[pipeline effects on motor imagery classification]</em>) found that <strong>baseline correction and band-pass filtering</strong> consistently provided the most beneficial preprocessing effects for motor-imagery classification accuracy, while more complex steps (ICA, surface Laplacian) had more variable benefit depending on the dataset - worth validating empirically on your own data rather than assuming a heavier pipeline is always better.  </li>
+<li>Surface Laplacian/Current Source Density (CSD) is commonly used as a spatial filter prior to connectivity or sensorimotor rhythm analyses to reduce volume conduction effects.  </li>
+<li>Movement and EMG contamination are more prominent in active motor tasks; apply the movement-artefact-specific guidance in Gorjan et al. (2022) and consider dedicated EMG channels for muscle-artefact regression.</li>
+</ul>
+<h2 id="6-documentation-and-reporting-checklist-for-publicationreproducibility">6. Documentation and Reporting Checklist (for Publication/Reproducibility)</h2>
+<ul>
+<li>Acquisition system (manufacturer/model), electrode count, montage, electrode type (active/passive, material).  </li>
+<li>Sampling rate, analogue filter bandwidth, and any online notch filtering.  </li>
+<li>Reference and ground electrode locations (both online and any offline re-referencing scheme).  </li>
+<li>All offline filter parameters (type, order, cutoff, causal vs. zero-phase).  </li>
+<li>Bad channel count/criteria and interpolation method.  </li>
+<li>ICA algorithm, number of components removed, and classification method/criteria (manual or ICLabel-based).  </li>
+<li>Artifact rejection thresholds/criteria and percentage of data/trials rejected.  </li>
+<li>Epoching window and baseline correction window.  </li>
+<li>Software and version numbers for every processing step (supports exact reproducibility).</li>
+</ul>
+<p><strong>References</strong></p>
+<ol>
+<li>Bigdely-Shamlo, N., Mullen, T., Kothe, C., Su, K. M., &amp; Robbins, K. A. (2015). The PREP pipeline: Standardized preprocessing for large-scale EEG analysis. <em>Frontiers in Neuroinformatics</em>, 9, 16.  </li>
+<li>Cohen, M. X. (2014). <em>Analyzing Neural Time Series Data: Theory and Practice</em>. MIT Press.  </li>
+<li>de Cheveigné, A., &amp; Nelken, I. (2019). Filters: When, why, and how (not) to use them. <em>Neuron</em>, 102(2), 280–293.  </li>
+<li>de Cheveigné, A. (2023). Comment on "EEG is better left alone." <em>bioRxiv</em>.  </li>
+<li>Debener, S., Thorne, J., Schneider, T. R., &amp; Viola, F. C. (2010). Using ICA for the analysis of multi-channel EEG data. In <em>Simultaneous EEG and fMRI</em>. Oxford University Press.  </li>
+<li>Delorme, A. (2023). EEG is better left alone. <em>Scientific Reports</em>, 13(1), 2372.  </li>
+<li>Delorme, A., &amp; Makeig, S. (2004). EEGLAB: An open source toolbox for analysis of single-trial EEG dynamics. <em>Journal of Neuroscience Methods</em>, 134(1), 9–21.  </li>
+<li>Delorme, A., Palmer, J., Onton, J., Oostenveld, R., &amp; Makeig, S. (2012). Independent EEG sources are dipolar. <em>PLoS ONE</em>, 7(2), e30135.  </li>
+<li>Gabard-Durnam, L. J., Mendez Leal, A. S., Wilkinson, C. L., &amp; Levin, A. R. (2018). The Harvard Automated Processing Pipeline for EEG (HAPPE). <em>Frontiers in Neuroscience</em>, 12, 97.  </li>
+<li>Gao, X. et al. (2025). Effects of different preprocessing pipelines on motor imagery classification. <em>PubMed</em> [PMID:40031268].  </li>
+<li>Gil Ávila, C., Bott, F. S., Tiemann, L., et al. (2023). DISCOVER-EEG: An open, fully automated EEG pipeline for biomarker discovery in clinical neuroscience. <em>Scientific Data</em>, 10(1), 613.  </li>
+<li>Gorjan, D., Gramann, K., De Pauw, K., &amp; Marusic, U. (2022). Removal of movement-induced EEG artifacts: Current state of the art and guidelines. <em>Journal of Neural Engineering</em>, 19(1), 011004.  </li>
+<li>Gratton, G., Coles, M. G. H., &amp; Donchin, E. (1983). A new method for off-line removal of ocular artifact. <em>Electroencephalography and Clinical Neurophysiology</em>, 55(4), 468–484.  </li>
+<li>Gwin, J. T., Gramann, K., Makeig, S., &amp; Ferris, D. P. (2010). Removal of movement artifact from high-density EEG recorded during walking and running. <em>Journal of Neurophysiology</em>, 103(6), 3526–3534.  </li>
+<li>Hu, S., Lai, Y., Valdes-Sosa, P. A., Bringas-Vega, M. L., &amp; Yao, D. (2018). How do reference montage and electrodes setup affect the measured scalp EEG potentials? <em>Journal of Neural Engineering</em>, 15(2), 026013.  </li>
+<li>Hyvärinen, A., &amp; Oja, E. (2000). Independent component analysis: Algorithms and applications. <em>Neural Networks</em>, 13(4), 411–430.  </li>
+<li>Jiang, X., Bian, G.-B., &amp; Tian, Z. (2019). Removal of artifacts from EEG signals: A review. <em>Sensors</em>, 19(5), 987.  </li>
+<li>Kappenman, E. S., &amp; Luck, S. J. (2010). The effects of electrode impedance on data quality and statistical significance in ERP recordings. <em>Psychophysiology</em>, 47(5), 888–904.  </li>
+<li>Keil, A., Debener, S., Gratton, G., et al. (2014). Committee report: Publication guidelines and recommendations for studies using EEG and MEG. <em>Psychophysiology</em>, 51(1), 1–21.  </li>
+<li>Klug, M., &amp; Gramann, K. (2020). Identifying key factors for improving ICA-based decomposition of EEG data in mobile and stationary experiments. <em>European Journal of Neuroscience</em>.  </li>
+<li>Klug, M., Berg, T., &amp; Gramann, K. (2024). Optimizing EEG ICA decomposition with data cleaning in stationary and mobile experiments. <em>Scientific Reports</em>, 14(1), 14119.  </li>
+<li>Larsen, B. A., &amp; Versace, F. (2024). EEG might be better left alone, but ERPs must be attended to. <em>International Journal of Psychophysiology</em>, 205, 112441.  </li>
+<li>Low, Y. F., &amp; Martinez-Cancino, R. (2026). EEG Preprocessing and Artifact Handling. In T. Warbrick (Ed.), <em>The EEG Handbook: From Principles to Practice</em> (Ch. 17). Springer Nature Switzerland.  </li>
+<li>Kadlec, D., et al. (2026). Getting Clean Data: Artifacts and How to Prevent Them. In T. Warbrick (Ed.), <em>The EEG Handbook</em> (Ch. 15). Springer Nature Switzerland.  </li>
+<li>Makeig, S., &amp; Onton, J. (2011). ICA of EEG. In <em>Oxford Handbook of Event-Related Potential Components</em>.  </li>
+<li>Mognon, A., Jovicich, J., Bruzzone, L., &amp; Buiatti, M. (2011). ADJUST: An automatic EEG artifact detector based on the joint use of spatial and temporal features. <em>Psychophysiology</em>, 48(2), 229–240.  </li>
+<li>Palmer, J., Kreutz-Delgado, K., &amp; Makeig, S. (2010). AMICA: An adaptive mixture of independent component analyzers with shared components.  </li>
+<li>Pernet, C., Garrido, M. I., Gramfort, A., et al. (2020). Issues and recommendations from the OHBM COBIDAS MEEG committee for reproducible EEG and MEG research. <em>Nature Neuroscience</em>, 23, 1473–1483.  </li>
+<li>Pion-Tonachini, L., Kreutz-Delgado, K., &amp; Makeig, S. (2019). ICLabel: An automated electroencephalographic independent component classifier, dataset, and website. <em>NeuroImage</em>, 198, 181–197.  </li>
+<li>Tsuchimoto, S., Shibusawa, S., Iwama, S., et al. (2021). Use of common average reference and large-Laplacian spatial filters enhances EEG SNR in intrinsic sensorimotor activity. <em>Journal of Neuroscience Methods</em>, 353, 109089.  </li>
+<li>Widmann, A., Schröger, E., &amp; Maess, B. (2015). Digital filter design for electrophysiological data—a practical approach. <em>Journal of Neuroscience Methods</em>, 250, 34–46.  </li>
+<li>Winkler, I., Debener, S., Müller, K.-R., &amp; Tangermann, M. (2015). On the influence of high-pass filtering on ICA-based artifact reduction in EEG-ERP.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
