@@ -15,10 +15,22 @@ theme:
       accent: indigo
   features:
     - navigation.tabs        # Top horizontal navigation menu
+    - navigation.top         # "Back to top" floating button
+    - navigation.tracking    # Dynamic URL updates as you scroll
+    - toc.follow             # Right-side table of contents follows scroll
     - search.suggest         # Live search bar as you type
     - content.code.copy      # Adds a "Copy Code" button to code blocks
 
 nav:
   - Home: index.md
-  - Lab Protocols: protocols.md
+  - Lab Protocols:
+      - Overview: protocols/index.md
+      - EEG Acquisition Setup: protocols/EEG Recording SOP.md
+      
   - Lab Meetings: meetings.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details         # Collapsible sections (??? note)
+  - attr_list                # Image sizing syntax ({ width="600" })
+  - md_in_html               # Custom HTML inside markdown (<figure> tags)
