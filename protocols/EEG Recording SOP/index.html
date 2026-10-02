@@ -1,0 +1,751 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal documentation and protocols for Murali Lab, IIT Jodhpur.">
+      
+      
+      
+        <link rel="canonical" href="https://muralilab-ccn.github.io/lab_wiki/protocols/EEG%20Recording%20SOP/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../meetings/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>EEG Acquisition Setup - Murali Lab Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eeg-recording" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Murali Lab Wiki" class="md-header__button md-logo" aria-label="Murali Lab Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Murali Lab Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EEG Acquisition Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/muralilab-ccn/lab_wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Lab Protocols
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../meetings/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab Meetings
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Murali Lab Wiki" class="md-nav__button md-logo" aria-label="Murali Lab Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Murali Lab Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/muralilab-ccn/lab_wiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lab Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEG Acquisition Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEG Acquisition Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#brainvision-actichamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BrainVision ActiCHamp
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meetings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Meetings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#brainvision-actichamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BrainVision ActiCHamp
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="eeg-recording">EEG Recording</h1>
+<h2 id="brainvision-actichamp">BrainVision ActiCHamp</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">This is the system setup we have in EEG Room 101. We use system 1 to monitor and record EEG data, while system 2 presents stimuli and sends markers to the EEG device. System 2 is mirrored in the participants' seating room.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>First step, turn on both systems.  </li>
+<li>Connect the EEG amplifier with the battery as per the connection shown  </li>
+<li>
+<p>Now we’ll connect the EEG electrode set and the ground electrodes. Be very careful while handling these wires, as they are very delicate.</p>
+</li>
+<li>
+<p>Connect the first electrode set (Green colour, marked 1-32) and the ground electrode as shown in the photo. If you need a 64-channel setup, connect the appropriate electrode set to the next slot. For a 128-channel setup, connect the 4 electrode sets in their respective slots in order.</p>
+</li>
+<li>
+<p>Complete setup   </p>
+</li>
+<li>
+<p>Now insert this dongle (UR13827) into system 1</p>
+</li>
+<li>
+<p>Now open BrainVision Recorder  </p>
+</li>
+<li>This is the main interface</li>
+</ol>
+<p><img alt="" src="data:image/png;base64,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DgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkFDgAgGQUOACAZBQ4AIBkF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" /></p>
+<ol>
+<li>Click on File, then New Workspace  </li>
+<li>
+<p>This pop-up window will open up. Click the Browse button next to Raw File Folder, then select the folder where you want to keep your workspace. Then Click Next</p>
+<p><img alt="" src="data:image/png;base64,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" /></p>
+</li>
+<li>
+<p>This pop-up window will open next. Click on Scan for Amplifier. It will automatically scan the number of connected electrodes with their labels. Set the sampling rate as per your requirements. Set the reference channel number as required. At the bottom of the pop-up window, you will see a button named Use Electrode Position File. Make sure the proper channel location file (.bvef) has been selected. Then click Next.  </p>
+</li>
+<li>
+<p>This pop-up window will open. If you need to set up filters, you can do so here; otherwise, click Next</p>
+</li>
+<li>
+<p>This pop-up window will open next. If you want to visualise real-time average segmentation, you can do so here; otherwise, click Next</p>
+</li>
+<li>
+<p>You will see this window to save your workspace. Name it properly and save  </p>
+</li>
+<li>
+<p>Now you can click on File and select Open Workspace</p>
+</li>
+<li>
+<p>After selecting your workspace, its name should appear in the bottom right corner</p>
+</li>
+<li>
+<p>Now click on Impedance check</p>
+</li>
+<li>
+<p>It will open this interface</p>
+</li>
+<li>
+<p>You can change the colour limit according to the impedance values (Green for 0-10 KOhm, Yellow to Red for 10-30 KOhm).  </p>
+</li>
+<li>Now you can start the capping part.  </li>
+<li>Make sure that the participant reads the information sheet and signs the consent form.  </li>
+<li>Measure the head size  </li>
+<li>Clean the forehead and mastoid properly.  </li>
+<li>Put the Cap on  </li>
+<li>First, place the ground electrode, then the remaining electrodes one by one, properly. Handle all electrodes very carefully.  </li>
+<li>Once you are satisfied with the impedance level of all electrodes, you are ready to record.  </li>
+<li>Click on the Record button to start recording</li>
+</ol>
+<h1 id="check-after-recording">Check after Recording</h1>
+<p>Once you have recorded your first data, check the following information</p>
+<ol>
+<li>Number of channels recorded  </li>
+<li>Sampling rate  </li>
+<li>Channel Labels for the given electrode set  </li>
+<li>Channel Location  </li>
+<li>Stimulus Markers Labels  </li>
+<li>Stimulus Markers Time  </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
