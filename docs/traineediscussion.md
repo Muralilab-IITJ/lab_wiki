@@ -9,7 +9,7 @@ Announcements regarding weekly discussions lead by trainees.
 
 | Date | Presenter | Reading / Topic |
 | :--- | :--- | :--- |
-|09 Oct 26 | Arpit | Granger Causality |
+|09 Nov 26 | Arpit | Granger Causality |
 |02 Nov 26 | Aflah | Machine learning |
 |26 Oct 26 | Prashansa | Microstates |
 |19 Oct 26 | Ashish | Generalized Eigendecomposition; Material: <https://compneuro.neuromatch.io/tutorials/W0D3_LinearAlgebra/student/W0D3_Tutorial1.html> |
