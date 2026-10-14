@@ -29,6 +29,7 @@ nav:
       - EEG Preprocessing: protocols/EEG Preprocessing.md
       - Psychopy: protocols/psychopy.md
   - Lab Meetings: meetings.md
+  - Trainee Discussion Meetings: traineediscussion.md
 
 markdown_extensions:
   - admonition
