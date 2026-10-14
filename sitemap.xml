@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/meetings/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/protocols/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
+    </url>
+    <url>
+         <loc>https://muralilab-ccn.github.io/lab_wiki/traineediscussion/</loc>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/protocols/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/protocols/EEG%20Preprocessing/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/protocols/EEG%20Recording%20SOP/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
     <url>
          <loc>https://muralilab-ccn.github.io/lab_wiki/protocols/psychopy/</loc>
-         <lastmod>2026-10-02</lastmod>
+         <lastmod>2026-10-14</lastmod>
     </url>
 </urlset>
